@@ -89,7 +89,6 @@ void ps2_mouse_task(void) {
     } else {
         if (debug_mouse) print("ps2_mouse: fail to get mouse packet\n");
         /* return here to avoid updating the mouse button state */
-        return;
     }
 #else
     if (pbuf_has_data()) {
@@ -102,7 +101,6 @@ void ps2_mouse_task(void) {
     } else {
         if (debug_mouse) print("ps2_mouse: fail to get mouse packet\n");
         /* return here to avoid updating the mouse button state */
-        return;
     }
 #endif
 
@@ -231,7 +229,7 @@ static inline void ps2_mouse_clear_report(report_mouse_t *mouse_report) {
     mouse_report->y       = 0;
     mouse_report->v       = 0;
     mouse_report->h       = 0;
-    mouse_report->buttons = 0;
+    //mouse_report->buttons = 0;
 }
 
 static inline void ps2_mouse_print_report(report_mouse_t *mouse_report) {
